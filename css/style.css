@@ -301,28 +301,54 @@ button { font-family: inherit; }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.8)} }
 
 .hero-title {
-  font-size: clamp(2.8rem, 6.5vw, 5.5rem);
-  font-weight: 500; line-height: 1.02;
-  letter-spacing: -0.03em; margin-bottom: 32px;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(3.5rem, 11vw, 9rem);
+  font-weight: 600; line-height: 0.92;
+  letter-spacing: -0.04em; margin-bottom: 28px;
   color: var(--text);
+  text-transform: uppercase;
 }
 .hero-title > span { display: block; }
 .hero-title-grad {
   color: var(--primary);
   font-style: italic;
   font-weight: 400;
+  text-transform: none;
   position: relative;
   display: inline-block;
 }
 .hero-title-grad::after {
   content: '';
   position: absolute;
-  left: -2%; right: -2%; bottom: -8px;
+  left: -2%; right: -2%; bottom: -4px;
   height: 14px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 14' preserveAspectRatio='none'><path d='M2 8 C 60 2, 120 12, 200 6 S 340 12, 398 4' stroke='%23b8341c' stroke-width='2.5' fill='none' stroke-linecap='round' opacity='0.7'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 14' preserveAspectRatio='none'><path d='M2 8 C 60 2, 120 12, 200 6 S 340 12, 398 4' stroke='%23b8341c' stroke-width='2.5' fill='none' stroke-linecap='round' opacity='0.85'/></svg>");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
+
+.hero-mascot {
+  width: clamp(120px, 18vw, 240px);
+  margin-bottom: 28px;
+  display: block;
+}
+.hero-mascot path,
+.hero-mascot rect,
+.hero-mascot circle { transition: var(--t); }
+
+@keyframes blink-eye {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95%           { transform: scaleY(0.1); }
+}
+.hero-mascot .eye {
+  transform-origin: center;
+  animation: blink-eye 4s infinite;
+}
+@keyframes float-bot {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+.hero-mascot { animation: float-bot 4s ease-in-out infinite; }
 
 .hero-type-wrap {
   display: flex; align-items: center; gap: 0;

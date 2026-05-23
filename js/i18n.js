@@ -19,12 +19,12 @@ const i18n = {
     /* ══════════════════════════════════════════════════
        INDEX PAGE
     ══════════════════════════════════════════════════ */
-    'index.hero.1':    'We Deliver',
-    'index.hero.2':    'Intelligent Solutions',
-    'index.hero.3':    'For Every Industry',
-    'index.hero.desc': 'AI Solution partners with organisations to design, build, and deploy production-grade AI systems — from initial data strategy through to live model monitoring and continuous improvement.',
-    'index.hero.btn1': 'Explore Services',
-    'index.hero.btn2': 'Book a Demo',
+    'index.hero.1':    'AI that',
+    'index.hero.2':    'actually',
+    'index.hero.3':    'works.',
+    'index.hero.desc': 'A small AI studio from Kota Bharu. We build systems that solve real business problems — not pretty demos, not slide decks, not enterprise empty promises.',
+    'index.hero.btn1': 'Tell us your problem',
+    'index.hero.btn2': 'What we do',
 
     'index.cap.label': 'Core Capabilities',
     'index.cap.title': 'AI That <span>Thinks, Learns</span> &amp; Adapts',
@@ -230,12 +230,12 @@ const i18n = {
     /* ══════════════════════════════════════════════════
        INDEX PAGE
     ══════════════════════════════════════════════════ */
-    'index.hero.1':    'Kami Menyampaikan',
-    'index.hero.2':    'Penyelesaian Cerdas',
-    'index.hero.3':    'Untuk Setiap Industri',
-    'index.hero.desc': 'AI Solution bekerjasama dengan organisasi untuk mereka bentuk, membina, dan menggunakan sistem AI peringkat pengeluaran — dari strategi data awal hingga pemantauan model langsung dan penambahbaikan berterusan.',
-    'index.hero.btn1': 'Lihat Perkhidmatan',
-    'index.hero.btn2': 'Tempah Demo',
+    'index.hero.1':    'AI yang',
+    'index.hero.2':    'betul-betul',
+    'index.hero.3':    'jalan.',
+    'index.hero.desc': 'Studio AI kecik dari Kota Bharu. Kami bina sistem yang selesaikan masalah sebenar perniagaan ko — bukan demo cantik, bukan slide deck, bukan janji-janji enterprise.',
+    'index.hero.btn1': 'Cerita masalah ko',
+    'index.hero.btn2': 'Apa kami buat',
 
     'index.cap.label': 'Keupayaan Teras',
     'index.cap.title': 'AI Yang <span>Berfikir, Belajar</span> &amp; Beradaptasi',
