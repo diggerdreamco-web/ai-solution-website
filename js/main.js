@@ -215,8 +215,8 @@ function applyLang(lang) {
   });
 }
 
-/* Paste GAS web app URL di sini selepas deploy */
-const CHAT_GAS_URL = 'https://script.google.com/macros/s/AKfycbxBwTnxqbaDbhf6fdcwK8xfLp4mlgPJhS7CH79g4TVDL0pUrLXsoDbMgiHHdqI4kswA/exec';
+/* Paste Cloudflare Worker URL di sini selepas deploy */
+const CHAT_GAS_URL = 'YOUR_CLOUDFLARE_WORKER_URL';
 
 function initChat() {
   /* inject HTML */
