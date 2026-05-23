@@ -3,28 +3,30 @@
    Style: Warm minimal | Serif display | Asymmetric
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-/* ---- Custom Properties ---- */
+/* ---- Custom Properties — Workshop Notes ---- */
 :root {
-  --bg-primary:    #faf6ef;     /* warm cream */
-  --bg-secondary:  #f2ece1;     /* deeper cream */
-  --bg-card:       #ffffff;
-  --bg-card-hover: #fdfbf6;
-  --border:        rgba(26, 22, 20, 0.10);
-  --border-hover:  rgba(26, 22, 20, 0.30);
+  --bg-primary:    #f4ecd8;     /* aged paper */
+  --bg-secondary:  #ede2c6;     /* deeper paper */
+  --bg-card:       #fbf6e8;     /* lighter paper */
+  --bg-card-hover: #fff9eb;
+  --border:        rgba(40, 30, 20, 0.18);
+  --border-hover:  rgba(40, 30, 20, 0.45);
 
-  --primary:       #a8421a;     /* deep terracotta */
-  --primary-dark:  #8a3315;
-  --secondary:     #4a3f33;     /* warm dark */
-  --accent:        #c25a2b;
-  --accent-green:  #5a7340;
-  --danger:        #b03030;
-  --warning:       #a8421a;
+  --primary:       #b8341c;     /* ink red */
+  --primary-dark:  #92281a;
+  --secondary:     #3d4a2a;     /* sage ink */
+  --accent:        #c2531f;
+  --accent-green:  #6b7a3a;
+  --danger:        #b8341c;
+  --warning:       #b8341c;
 
-  --text:          #1a1614;     /* deep charcoal */
-  --text-sub:      #514a44;
-  --text-muted:    #8a8079;
+  --text:          #1c1812;     /* ink black */
+  --text-sub:      #4a4338;
+  --text-muted:    #8a7f6e;
+
+  --mono: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
 
   --sidebar-w:     270px;
   --bar-h:         58px;
@@ -53,10 +55,25 @@ html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background: var(--bg-primary);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(40,30,20,0.07) 1px, transparent 0);
+  background-size: 24px 24px;
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+.eyebrow, .sec-label, .nav-group-label, .ph-label {
+  font-family: var(--mono) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+  font-size: 0.72rem !important;
+  color: var(--primary) !important;
+}
+.eyebrow::before, .sec-label::before, .ph-label::before {
+  content: '// ';
+  color: var(--text-muted);
 }
 h1, h2, h3, .hero-title, .sec-title, .ph-title, .cta-band h2 {
   font-family: 'Fraunces', Georgia, serif;
@@ -294,6 +311,17 @@ button { font-family: inherit; }
   color: var(--primary);
   font-style: italic;
   font-weight: 400;
+  position: relative;
+  display: inline-block;
+}
+.hero-title-grad::after {
+  content: '';
+  position: absolute;
+  left: -2%; right: -2%; bottom: -8px;
+  height: 14px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 14' preserveAspectRatio='none'><path d='M2 8 C 60 2, 120 12, 200 6 S 340 12, 398 4' stroke='%23b8341c' stroke-width='2.5' fill='none' stroke-linecap='round' opacity='0.7'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .hero-type-wrap {
@@ -454,28 +482,39 @@ button { font-family: inherit; }
 
 .card {
   background: var(--bg-card);
-  border: 1px solid var(--border); border-radius: var(--r-md);
-  padding: 30px; transition: var(--t); position: relative; overflow: hidden;
+  border: 1px solid var(--text);
+  border-radius: 2px;
+  padding: 28px 26px;
+  position: relative;
+  box-shadow: 4px 4px 0 var(--text);
+  transition: var(--t);
 }
-.card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0;
-  height: 2px; background: var(--grad); transform: scaleX(0);
-  transform-origin: left; transition: var(--t);
+.card::before { display: none; }
+.card:nth-child(3n+1) { transform: rotate(-0.4deg); }
+.card:nth-child(3n+2) { transform: rotate(0.3deg); }
+.card:nth-child(3n+3) { transform: rotate(-0.2deg); }
+.card:hover {
+  transform: translate(-2px, -2px) rotate(0);
+  box-shadow: 6px 6px 0 var(--primary);
+  border-color: var(--primary);
 }
-.card:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: var(--shadow-card), var(--glow-sm); }
-.card:hover::before { transform: scaleX(1); }
+.card::after {
+  content: '';
+  position: absolute; top: -8px; right: 22px;
+  width: 36px; height: 16px;
+  background: rgba(184,52,28,0.25);
+  border: 1px solid rgba(184,52,28,0.4);
+  transform: rotate(-3deg);
+}
 
-.card-icon {
-  width: 50px; height: 50px;
-  background: rgba(210,159,34,0.1);
-  border: 1px solid rgba(210,159,34,0.18);
-  border-radius: var(--r-sm);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.35rem; margin-bottom: 18px; transition: var(--t);
+.card-icon { display: none; }
+.card-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.4rem; font-weight: 500;
+  margin-bottom: 12px; line-height: 1.15;
+  letter-spacing: -0.01em;
 }
-.card:hover .card-icon { background: var(--grad); border-color: transparent; box-shadow: var(--glow-sm); }
-.card-title { font-size: 1rem; font-weight: 700; margin-bottom: 9px; }
-.card-desc { font-size: 0.855rem; color: var(--text-sub); line-height: 1.72; }
+.card-desc { font-size: 0.9rem; color: var(--text-sub); line-height: 1.65; }
 
 /* ============================================================
    STATS BAND
@@ -788,13 +827,21 @@ textarea.form-ctrl { resize: vertical; min-height: 118px; }
    VALUES
    ============================================================ */
 .val-item {
-  background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: var(--r-md); padding: 26px; transition: var(--t);
+  background: transparent;
+  border: none;
+  border-left: 2px solid var(--text);
+  border-radius: 0;
+  padding: 4px 0 4px 24px;
+  transition: var(--t);
 }
-.val-item:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+.val-item:hover { border-left-color: var(--primary); transform: translateX(4px); }
 .val-icon { font-size: 1.6rem; margin-bottom: 12px; }
-.val-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 7px; }
-.val-desc { font-size: 0.845rem; color: var(--text-sub); line-height: 1.72; }
+.val-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.3rem; font-weight: 500;
+  margin-bottom: 8px; letter-spacing: -0.01em;
+}
+.val-desc { font-size: 0.9rem; color: var(--text-sub); line-height: 1.7; }
 
 /* ============================================================
    CTA BAND
