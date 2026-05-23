@@ -312,22 +312,19 @@ function initChat() {
 
     if (CHAT_GAS_URL && CHAT_GAS_URL !== 'YOUR_GAS_WEB_APP_URL') {
       try {
-        /* GET + URLSearchParams — paling reliable untuk GAS */
         const params = new URLSearchParams({
           message: txt,
           page: location.pathname.split('/').pop() || 'index.html'
         });
-        fetch(`${CHAT_GAS_URL}?${params}`, { mode: 'no-cors' });
-        setTimeout(() => {
-          typing.remove();
-          addMsg('Terima kasih! Pasukan kami akan menghubungi anda dalam masa 1 hari bekerja.', 'bot');
-        }, 1000);
+        const res  = await fetch(`${CHAT_GAS_URL}?${params}`);
+        const data = await res.json();
+        typing.remove();
+        addMsg(data.reply || 'Terima kasih! Pasukan kami akan menghubungi anda dalam masa 1 hari bekerja.', 'bot');
       } catch {
         typing.remove();
         addMsg('Maaf, ada gangguan. Cuba lagi sebentar.', 'bot');
       }
     } else {
-      /* fallback semasa development */
       setTimeout(() => {
         typing.remove();
         addMsg(replies[replyIdx % replies.length], 'bot');
