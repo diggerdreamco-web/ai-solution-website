@@ -106,12 +106,36 @@ function setActiveNav() {
    SCROLL REVEAL
    ============================================================ */
 function initReveal() {
+  /* Auto-tag elements yang patut reveal (kalau belum ada class) */
+  const auto = [
+    'main h2, main h3',
+    'main .sec-label, main .ph-label, main .sec-desc, main .ph-desc',
+    '.card, .val-item, .proc-item, .price-card, .srv-card, .team-card, .tl-item',
+    '.cta-band, .cta-band h2, .cta-band p, .cta-band .cta-btns',
+    '.chk-list li, .price-feats li',
+    '.alt-content, .alt-visual',
+    '.faq-item'
+  ].join(',');
+  document.querySelectorAll(auto).forEach(el => {
+    if (!el.classList.contains('reveal') && !el.classList.contains('hero-reveal')) {
+      el.classList.add('reveal');
+    }
+  });
+
+  /* Stagger: items dalam grid dapat delay automatic */
+  document.querySelectorAll('.grid-2, .grid-3, .grid-4, .srv-detail-grid, .process-row, .pricing-wrap, .team-grid')
+    .forEach(grid => {
+      [...grid.children].forEach((child, i) => {
+        child.style.transitionDelay = (i * 0.08) + 's';
+      });
+    });
+
   const els = document.querySelectorAll('.reveal');
   if (!els.length) return;
 
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-  }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
 
   els.forEach(el => obs.observe(el));
 }
