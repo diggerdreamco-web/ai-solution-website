@@ -3,7 +3,7 @@
    Style: Warm minimal | Serif display | Asymmetric
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 /* ---- Custom Properties — Workshop Notes ---- */
 :root {
@@ -72,11 +72,12 @@ body {
   color: var(--primary) !important;
 }
 .eyebrow::before, .sec-label::before, .ph-label::before {
-  content: '// ';
-  color: var(--text-muted);
+  content: '§ ';
+  color: var(--primary);
+  font-weight: 600;
 }
 h1, h2, h3, .hero-title, .sec-title, .ph-title, .cta-band h2 {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: 'Instrument Serif', 'Times New Roman', Georgia, serif;
   font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.05;
@@ -124,7 +125,7 @@ button { font-family: inherit; }
 }
 .logo { display: flex; align-items: center; }
 .logo-name {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: 'Instrument Serif', 'Times New Roman', Georgia, serif;
   font-size: 1.25rem; font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1; color: var(--text);
@@ -288,19 +289,19 @@ button { font-family: inherit; }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.8)} }
 
 .hero-title {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: clamp(3.5rem, 11vw, 9rem);
-  font-weight: 600; line-height: 0.92;
-  letter-spacing: -0.04em; margin-bottom: 28px;
+  font-family: 'Instrument Serif', 'Times New Roman', Georgia, serif;
+  font-size: clamp(4.5rem, 14vw, 12rem);
+  font-weight: 400; line-height: 0.88;
+  letter-spacing: -0.02em; margin-bottom: 32px;
   color: var(--text);
-  text-transform: uppercase;
+  text-transform: none;
 }
 .hero-title > span { display: block; }
 .hero-title-grad {
   color: var(--primary);
   font-style: italic;
   font-weight: 400;
-  text-transform: none;
+  letter-spacing: -0.01em;
   position: relative;
   display: inline-block;
 }
@@ -361,7 +362,7 @@ button { font-family: inherit; }
   gap: 24px;
   white-space: nowrap;
   animation: marquee-scroll 45s linear infinite;
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: 'Instrument Serif', 'Times New Roman', Georgia, serif;
   font-size: clamp(0.95rem, 1.6vw, 1.25rem);
   font-weight: 500;
   letter-spacing: 0;
@@ -467,8 +468,25 @@ button { font-family: inherit; }
 /* ============================================================
    SECTIONS
    ============================================================ */
-.sec { padding: 80px 64px; position: relative; }
+.sec { padding: 100px 64px 80px; position: relative; }
 .sec-alt { background: var(--bg-secondary); }
+
+/* Giant section index numbers (decorative, background) */
+.sec[data-no]::before {
+  content: attr(data-no);
+  position: absolute;
+  top: 32px; right: 64px;
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: clamp(8rem, 18vw, 16rem);
+  line-height: 0.85;
+  color: var(--text);
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+  letter-spacing: -0.04em;
+}
+.sec > * { position: relative; z-index: 1; }
 
 .sec-label {
   display: inline-flex; align-items: center; gap: 8px;
@@ -481,13 +499,20 @@ button { font-family: inherit; }
   background: var(--grad); border-radius: 2px;
 }
 .sec-title {
-  font-size: clamp(1.75rem, 3vw, 2.65rem);
-  font-weight: 800; letter-spacing: -0.5px; line-height: 1.2;
-  margin-bottom: 14px;
+  font-family: 'Instrument Serif', 'Times New Roman', Georgia, serif;
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.0;
+  margin-bottom: 18px;
+  max-width: 18ch;
 }
 .sec-title span {
-  background: var(--grad); -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; background-clip: text;
+  font-style: italic;
+  color: var(--primary);
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: currentColor !important;
 }
 .sec-desc {
   font-size: 0.95rem; color: var(--text-sub);
@@ -557,16 +582,23 @@ button { font-family: inherit; }
 }
 .card::after {
   content: '';
-  position: absolute; top: -8px; right: 22px;
-  width: 36px; height: 16px;
-  background: rgba(184,52,28,0.25);
-  border: 1px solid rgba(184,52,28,0.4);
-  transform: rotate(-3deg);
+  position: absolute;
+  top: 8px; left: 8px; right: 8px; bottom: 8px;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--text) 0, var(--text) 12px, transparent 12px),
+    linear-gradient(to bottom, var(--text) 0, var(--text) 12px, transparent 12px),
+    linear-gradient(to left, var(--text) 0, var(--text) 12px, transparent 12px),
+    linear-gradient(to top, var(--text) 0, var(--text) 12px, transparent 12px);
+  background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+  background-position: top left, top left, top right, bottom right;
+  background-repeat: no-repeat;
+  opacity: 0.7;
 }
 
 .card-icon { display: none; }
 .card-title {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: 'Instrument Serif', 'Times New Roman', Georgia, serif;
   font-size: 1.4rem; font-weight: 500;
   margin-bottom: 12px; line-height: 1.15;
   letter-spacing: -0.01em;
@@ -894,7 +926,7 @@ textarea.form-ctrl { resize: vertical; min-height: 118px; }
 .val-item:hover { border-left-color: var(--primary); transform: translateX(4px); }
 .val-icon { font-size: 1.6rem; margin-bottom: 12px; }
 .val-title {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: 'Instrument Serif', 'Times New Roman', Georgia, serif;
   font-size: 1.3rem; font-weight: 500;
   margin-bottom: 8px; letter-spacing: -0.01em;
 }
