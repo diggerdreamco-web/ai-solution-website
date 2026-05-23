@@ -13,7 +13,59 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackTop();
   initChat();
   initI18n();
+  initSmoothScroll();
+  initCursor();
+  initHeroReveal();
 });
+
+/* ---- Smooth scroll (Lenis) ---- */
+function initSmoothScroll() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const s = document.createElement('script');
+  s.src = 'https://unpkg.com/lenis@1.1.13/dist/lenis.min.js';
+  s.onload = () => {
+    const lenis = new window.Lenis({
+      duration: 1.1,
+      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+    (function raf(time) { lenis.raf(time); requestAnimationFrame(raf); })();
+  };
+  document.head.appendChild(s);
+}
+
+/* ---- Custom cursor ---- */
+function initCursor() {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+  const dot = document.createElement('div');
+  dot.className = 'cursor-dot';
+  document.body.appendChild(dot);
+
+  let mx = 0, my = 0, cx = 0, cy = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  (function loop() {
+    cx += (mx - cx) * 0.22;
+    cy += (my - cy) * 0.22;
+    dot.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
+    requestAnimationFrame(loop);
+  })();
+
+  const grow = () => dot.classList.add('grow');
+  const shrink = () => dot.classList.remove('grow');
+  document.querySelectorAll('a, button, .card, .val-item, input, textarea, select, .chat-toggle')
+    .forEach(el => { el.addEventListener('mouseenter', grow); el.addEventListener('mouseleave', shrink); });
+}
+
+/* ---- Hero reveal (stagger spans + desc + buttons) ---- */
+function initHeroReveal() {
+  const items = [
+    ...document.querySelectorAll('.hero-mascot, .hero-title > span, .hero-desc, .hero-btns')
+  ];
+  items.forEach((el, i) => {
+    el.classList.add('hero-reveal');
+    el.style.transitionDelay = (i * 0.09) + 's';
+  });
+  requestAnimationFrame(() => items.forEach(el => el.classList.add('in')));
+}
 
 /* ---- Sidebar / Mobile Menu ---- */
 function initSidebar() {
