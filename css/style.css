@@ -350,6 +350,45 @@ button { font-family: inherit; }
 }
 .hero-mascot { animation: float-bot 4s ease-in-out infinite; }
 
+/* ============================================================
+   MARQUEE BANNER
+   ============================================================ */
+.marquee {
+  background: var(--text);
+  color: var(--bg-primary);
+  border-top: 3px solid var(--text);
+  border-bottom: 3px solid var(--text);
+  padding: 22px 0;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+}
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
+  white-space: nowrap;
+  animation: marquee-scroll 45s linear infinite;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.marquee-track span {
+  display: inline-block;
+  text-transform: uppercase;
+}
+.marquee-track .marquee-dot {
+  color: var(--primary);
+  font-size: 0.85em;
+  text-transform: none;
+}
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
 .hero-type-wrap {
   display: flex; align-items: center; gap: 0;
   height: 2rem; margin-bottom: 22px; overflow: hidden;
