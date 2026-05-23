@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initBackTop();
   initChat();
+  initI18n();
 });
 
 /* ---- Sidebar / Mobile Menu ---- */
@@ -184,6 +185,36 @@ function initBackTop() {
 /* ============================================================
    CHAT WIDGET
    ============================================================ */
+/* ============================================================
+   BILINGUAL (EN / BM)
+   ============================================================ */
+function initI18n() {
+  if (typeof i18n === 'undefined') return;
+  const saved = localStorage.getItem('lang') || 'en';
+  applyLang(saved);
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === saved);
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+      localStorage.setItem('lang', lang);
+      applyLang(lang);
+      document.querySelectorAll('.lang-btn').forEach(b =>
+        b.classList.toggle('active', b.dataset.lang === lang)
+      );
+    });
+  });
+}
+
+function applyLang(lang) {
+  const t = i18n[lang];
+  if (!t) return;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const val = t[el.dataset.i18n];
+    if (val !== undefined) el.innerHTML = val;
+  });
+}
+
 /* Paste GAS web app URL di sini selepas deploy */
 const CHAT_GAS_URL = 'https://script.google.com/macros/s/AKfycbxBwTnxqbaDbhf6fdcwK8xfLp4mlgPJhS7CH79g4TVDL0pUrLXsoDbMgiHHdqI4kswA/exec';
 

@@ -17,14 +17,19 @@
         <div class="logo-name">AI Solution</div>
       </div>
     </a>
+    <div class="lang-toggle">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="ms">BM</button>
+    </div>
   </div>
   <nav class="sidebar-nav">
     <div class="nav-group-label">Main Menu</div>
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="services.html" class="nav-link">Services</a>
-    <a href="about.html" class="nav-link">About Us</a>
-    <a href="pricing.html" class="nav-link">Pricing</a>
-    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+    <a href="services.html" class="nav-link" data-i18n="nav.services">Services</a>
+    <a href="about.html" class="nav-link" data-i18n="nav.about">About Us</a>
+    <a href="pricing.html" class="nav-link" data-i18n="nav.pricing">Pricing</a>
+    <a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a>
   </nav>
   <div class="sidebar-footer">
     <div class="social-row">
@@ -41,7 +46,7 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
       </a>
     </div>
-    <a href="contact.html" class="sidebar-cta">Get Free Consultation</a>
+    <a href="contact.html" class="sidebar-cta" data-i18n="nav.cta">Get Free Consultation</a>
   </div>
 </aside>
 
@@ -54,25 +59,23 @@
 
   <!-- ── PAGE HERO ── -->
   <div class="page-hero">
-    <div class="ph-label">Our Story</div>
-    <h1 class="ph-title">The Team Behind <span>Transformative AI</span></h1>
-    <p class="ph-desc">Founded by engineers and researchers who left top AI labs to make enterprise-grade artificial intelligence accessible, accountable, and genuinely impactful.</p>
+    <div class="ph-label" data-i18n="about.hero.label">Our Story</div>
+    <h1 class="ph-title" data-i18n="about.hero.title">The Team Behind <span>Transformative AI</span></h1>
+    <p class="ph-desc" data-i18n="about.hero.desc">Founded by engineers and researchers who left top AI labs to make enterprise-grade artificial intelligence accessible, accountable, and genuinely impactful.</p>
   </div>
 
   <!-- ── MISSION SECTION ── -->
   <div class="alt">
     <div class="alt-content reveal">
-      <div class="sec-label">Our Mission</div>
-      <h2 class="sec-title">Making AI Work <span>For People</span>, Not the Other Way Around</h2>
+      <div class="sec-label" data-i18n="about.mission.label">Our Mission</div>
+      <h2 class="sec-title" data-i18n="about.mission.title">Making AI Work <span>For People</span>, Not the Other Way Around</h2>
       <p style="font-size:.96rem;color:var(--text-sub);line-height:1.85;margin-bottom:18px;">
         We started AI Solution in 2019 with a single conviction: most organisations were being sold AI hype instead of AI results. Consultancies delivered decks. Software vendors pushed one-size-fits-all tools. Neither delivered lasting business value.
       </p>
       <p style="font-size:.96rem;color:var(--text-sub);line-height:1.85;margin-bottom:28px;">
         We built AI Solution to be the partner we wish we had — pragmatic engineers who understand business context, communicate clearly without jargon, and measure their work by your outcomes rather than their billable hours.
       </p>
-      <a href="contact.html" class="btn btn-pri">
-                Work With Us
-      </a>
+      <a href="contact.html" class="btn btn-pri" data-i18n="about.mission.btn">Work With Us</a>
     </div>
     <div class="alt-visual reveal d2">
       <div class="vis-mockup">
@@ -122,33 +125,33 @@
 
   <!-- ── VALUES ── -->
   <section class="sec sec-alt">
-    <div class="sec-label">What Drives Us</div>
-    <h2 class="sec-title reveal">Our Core <span>Values</span></h2>
-    <p class="sec-desc reveal d1">These aren't posters on a wall. They're the principles that determine how we hire, what projects we take on, and how we handle difficult situations with clients.</p>
+    <div class="sec-label" data-i18n="about.values.label">What Drives Us</div>
+    <h2 class="sec-title reveal" data-i18n="about.values.title">Our Core <span>Values</span></h2>
+    <p class="sec-desc reveal d1" data-i18n="about.values.desc">These aren't posters on a wall. They're the principles that determine how we hire, what projects we take on, and how we handle difficult situations with clients.</p>
 
     <div class="grid-2" style="margin-top:8px">
       <div class="val-item reveal d1">
-        <h3 class="val-title">Outcome Over Output</h3>
+        <h3 class="val-title" data-i18n="about.val.1.title">Outcome Over Output</h3>
         <p class="val-desc">We measure our success by the business results we create for clients — not lines of code written, models trained, or slide decks delivered. If it doesn't move your needle, we say so early.</p>
       </div>
       <div class="val-item reveal d2">
-        <h3 class="val-title">Radical Transparency</h3>
+        <h3 class="val-title" data-i18n="about.val.2.title">Radical Transparency</h3>
         <p class="val-desc">We tell you what your data can and cannot support. We flag risks before they become problems. We share model performance metrics openly, including when they're disappointing.</p>
       </div>
       <div class="val-item reveal d1">
-        <h3 class="val-title">Responsible Innovation</h3>
+        <h3 class="val-title" data-i18n="about.val.3.title">Responsible Innovation</h3>
         <p class="val-desc">Every model we build is assessed for bias, fairness, and downstream societal impact. We refuse projects that could cause harm, no matter how lucrative, because trust is our most valuable asset.</p>
       </div>
       <div class="val-item reveal d2">
-        <h3 class="val-title">True Partnership</h3>
+        <h3 class="val-title" data-i18n="about.val.4.title">True Partnership</h3>
         <p class="val-desc">We embed within your teams, upskill your engineers, and document everything so knowledge stays inside your organisation long after our engagement ends. No artificial dependency.</p>
       </div>
       <div class="val-item reveal d1">
-        <h3 class="val-title">Speed Without Shortcuts</h3>
+        <h3 class="val-title" data-i18n="about.val.5.title">Speed Without Shortcuts</h3>
         <p class="val-desc">Rapid prototyping is not an excuse for technical debt. We move fast using battle-tested frameworks and automation, delivering production-ready code that won't collapse under real-world load.</p>
       </div>
       <div class="val-item reveal d2">
-        <h3 class="val-title">Global Perspective</h3>
+        <h3 class="val-title" data-i18n="about.val.6.title">Global Perspective</h3>
         <p class="val-desc">With team members across six continents, we bring cultural nuance to every AI system we build — designing for diverse users, edge cases, and regulatory environments from day one.</p>
       </div>
     </div>
@@ -156,9 +159,9 @@
 
   <!-- ── TEAM ── -->
   <section class="sec">
-    <div class="sec-label">Leadership</div>
-    <h2 class="sec-title reveal">Meet the <span>Minds Behind</span> AI Solution</h2>
-    <p class="sec-desc reveal d1">Our leadership team combines decades of experience from top research institutions, global consultancies, and high-growth technology companies.</p>
+    <div class="sec-label" data-i18n="about.team.label">Leadership</div>
+    <h2 class="sec-title reveal" data-i18n="about.team.title">Meet the <span>Minds Behind</span> AI Solution</h2>
+    <p class="sec-desc reveal d1" data-i18n="about.team.desc">Our leadership team combines decades of experience from top research institutions, global consultancies, and high-growth technology companies.</p>
 
     <div class="team-grid">
       <div class="team-card reveal d1">
@@ -218,9 +221,9 @@
 
   <!-- ── TIMELINE ── -->
   <section class="sec sec-alt">
-    <div class="sec-label">Our Journey</div>
-    <h2 class="sec-title reveal">From Stealth Startup to <span>Global AI Leader</span></h2>
-    <p class="sec-desc reveal d1">Six years of deliberate growth, built on deep technical expertise and an unwavering commitment to client outcomes.</p>
+    <div class="sec-label" data-i18n="about.timeline.label">Our Journey</div>
+    <h2 class="sec-title reveal" data-i18n="about.timeline.title">From Stealth Startup to <span>Global AI Leader</span></h2>
+    <p class="sec-desc reveal d1" data-i18n="about.timeline.desc">Six years of deliberate growth, built on deep technical expertise and an unwavering commitment to client outcomes.</p>
 
     <div style="max-width:640px;margin-top:12px">
       <div class="tl reveal">
@@ -283,34 +286,30 @@
       </div>
     </div>
     <div class="alt-content reveal d2">
-      <div class="sec-label">Life at AI Solution</div>
-      <h2 class="sec-title">A Culture Built on <span>Curiosity</span> &amp; Craft</h2>
+      <div class="sec-label" data-i18n="about.culture.label">Life at AI Solution</div>
+      <h2 class="sec-title" data-i18n="about.culture.title">A Culture Built on <span>Curiosity</span> &amp; Craft</h2>
       <p style="font-size:.96rem;color:var(--text-sub);line-height:1.85;margin-bottom:22px;">
         We hire curious minds, not keyword-matching CVs. Every team member receives a personal learning budget, attends at least one major AI conference annually, and contributes to open-source research.
       </p>
       <ul class="chk-list">
-        <li>20% time policy — every engineer spends one day a week on blue-sky research</li>
-        <li>Fully remote-friendly with quarterly in-person team summits</li>
-        <li>Competitive equity, unlimited PTO, and mental health support</li>
-        <li>Internal AI ethics review board with rotating membership</li>
+        <li data-i18n="about.culture.li1">20% time policy — every engineer spends one day a week on blue-sky research</li>
+        <li data-i18n="about.culture.li2">Fully remote-friendly with quarterly in-person team summits</li>
+        <li data-i18n="about.culture.li3">Competitive equity, unlimited PTO, and mental health support</li>
+        <li data-i18n="about.culture.li4">Internal AI ethics review board with rotating membership</li>
       </ul>
       <div style="margin-top:26px">
-        <a href="contact.html" class="btn btn-ghost">
-          View Open Roles
-        </a>
+        <a href="contact.html" class="btn btn-ghost" data-i18n="about.culture.btn">View Open Roles</a>
       </div>
     </div>
   </div>
 
   <!-- ── CTA ── -->
   <div class="cta-band reveal">
-    <h2>Let's Build Something <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Extraordinary Together</span></h2>
-    <p>Whether you're a seed-stage startup or a global enterprise, we bring the same rigour, curiosity, and commitment to every engagement.</p>
+    <h2 data-i18n="about.cta.title">Let's Build Something <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Extraordinary Together</span></h2>
+    <p data-i18n="about.cta.desc">Whether you're a seed-stage startup or a global enterprise, we bring the same rigour, curiosity, and commitment to every engagement.</p>
     <div class="cta-btns">
-      <a href="contact.html" class="btn btn-pri">
-        Get in Touch
-      </a>
-      <a href="services.html" class="btn btn-sec">Explore Services</a>
+      <a href="contact.html" class="btn btn-pri" data-i18n="about.cta.btn1">Get in Touch</a>
+      <a href="services.html" class="btn btn-sec" data-i18n="about.cta.btn2">Explore Services</a>
     </div>
   </div>
 
@@ -325,9 +324,8 @@
     <a href="contact.html">Contact</a>
   </div>
   <div class="bar-right">
-    <span>Ready to transform your business?</span>
-    <a href="contact.html" class="bar-cta">
-            Get Started Free
+    <span data-i18n="bar.tagline">Ready to transform your business?</span>
+    <a href="contact.html" class="bar-cta" data-i18n="bar.btn">Get Started Free
     </a>
   </div>
 </nav>
@@ -336,6 +334,7 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

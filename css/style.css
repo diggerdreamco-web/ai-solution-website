@@ -1126,3 +1126,20 @@ textarea.form-ctrl { resize: vertical; min-height: 118px; }
   .chat-widget { right: 14px; bottom: 76px; }
   .chat-panel { width: calc(100vw - 28px); }
 }
+
+/* ---- Language Toggle ---- */
+.lang-toggle {
+  display: flex; align-items: center; gap: 4px;
+  margin-top: 10px; padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.lang-sep { color: var(--text-muted); font-size: 0.7rem; }
+.lang-btn {
+  background: none; border: none; cursor: pointer;
+  font-size: 0.72rem; font-weight: 800; letter-spacing: 0.5px;
+  color: var(--text-muted); padding: 3px 8px;
+  border-radius: 4px; font-family: inherit;
+  transition: color 0.15s, background 0.15s;
+}
+.lang-btn.active { color: var(--primary); background: rgba(210,159,34,0.12); }
+.lang-btn:hover:not(.active) { color: var(--text); }

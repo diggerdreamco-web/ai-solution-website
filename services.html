@@ -17,14 +17,19 @@
         <div class="logo-name">AI Solution</div>
       </div>
     </a>
+    <div class="lang-toggle">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="ms">BM</button>
+    </div>
   </div>
   <nav class="sidebar-nav">
     <div class="nav-group-label">Main Menu</div>
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="services.html" class="nav-link">Services</a>
-    <a href="about.html" class="nav-link">About Us</a>
-    <a href="pricing.html" class="nav-link">Pricing</a>
-    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+    <a href="services.html" class="nav-link" data-i18n="nav.services">Services</a>
+    <a href="about.html" class="nav-link" data-i18n="nav.about">About Us</a>
+    <a href="pricing.html" class="nav-link" data-i18n="nav.pricing">Pricing</a>
+    <a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a>
   </nav>
   <div class="sidebar-footer">
     <div class="social-row">
@@ -41,7 +46,7 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
       </a>
     </div>
-    <a href="contact.html" class="sidebar-cta">Get Free Consultation</a>
+    <a href="contact.html" class="sidebar-cta" data-i18n="nav.cta">Get Free Consultation</a>
   </div>
 </aside>
 
@@ -54,59 +59,47 @@
 
   <!-- ── PAGE HERO ── -->
   <div class="page-hero">
-    <div class="ph-label">What We Do</div>
-    <h1 class="ph-title">Enterprise <span>AI Services</span><br>Built to Scale</h1>
-    <p class="ph-desc">From your first proof-of-concept to a global production rollout, our end-to-end service portfolio covers every phase of your AI journey — with experts who've done it before.</p>
+    <div class="ph-label" data-i18n="services.hero.label">What We Do</div>
+    <h1 class="ph-title" data-i18n="services.hero.title">Enterprise <span>AI Services</span><br>Built to Scale</h1>
+    <p class="ph-desc" data-i18n="services.hero.desc">From your first proof-of-concept to a global production rollout, our end-to-end service portfolio covers every phase of your AI journey — with experts who've done it before.</p>
   </div>
 
   <!-- ── SERVICE CARDS OVERVIEW ── -->
   <section class="sec">
-    <div class="sec-label">Full Portfolio</div>
-    <h2 class="sec-title reveal">Six Disciplines. <span>One Unified Platform.</span></h2>
-    <p class="sec-desc reveal d1">Every service is delivered through our integrated AI Platform, giving you a single pane of glass for development, deployment, monitoring, and governance.</p>
+    <div class="sec-label" data-i18n="services.port.label">Full Portfolio</div>
+    <h2 class="sec-title reveal" data-i18n="services.port.title">Six Disciplines. <span>One Unified Platform.</span></h2>
+    <p class="sec-desc reveal d1" data-i18n="services.port.desc">Every service is delivered through our integrated AI Platform, giving you a single pane of glass for development, deployment, monitoring, and governance.</p>
 
     <div class="srv-detail-grid">
       <div class="srv-card reveal d1">
-        <h3 class="srv-card-title">Machine Learning Engineering</h3>
+        <h3 class="srv-card-title" data-i18n="services.s1.title">Machine Learning Engineering</h3>
         <p class="srv-card-desc">We design, train, and operationalise custom ML models using your data. Our MLOps pipelines ensure models stay accurate, reproducible, and continuously improving — from experimentation to production with full CI/CD automation.</p>
-        <a href="contact.html" class="srv-card-link">
-          Inquire about this service
-</a>
+        <a href="contact.html" class="srv-card-link" data-i18n="services.card.link">Inquire about this service</a>
       </div>
       <div class="srv-card reveal d2">
-        <h3 class="srv-card-title">Natural Language Processing</h3>
+        <h3 class="srv-card-title" data-i18n="services.s2.title">Natural Language Processing</h3>
         <p class="srv-card-desc">Unlock the value in your unstructured text data. We build custom NLP systems for sentiment analysis, document classification, named entity recognition, summarisation, and conversational AI powered by fine-tuned language models.</p>
-        <a href="contact.html" class="srv-card-link">
-          Inquire about this service
-</a>
+        <a href="contact.html" class="srv-card-link" data-i18n="services.card.link">Inquire about this service</a>
       </div>
       <div class="srv-card reveal d1">
-        <h3 class="srv-card-title">Computer Vision Solutions</h3>
+        <h3 class="srv-card-title" data-i18n="services.s3.title">Computer Vision Solutions</h3>
         <p class="srv-card-desc">From object detection and facial recognition to anomaly detection and 3D scene reconstruction, our CV systems integrate with your existing cameras and edge hardware to deliver real-time visual intelligence at any scale.</p>
-        <a href="contact.html" class="srv-card-link">
-          Inquire about this service
-</a>
+        <a href="contact.html" class="srv-card-link" data-i18n="services.card.link">Inquire about this service</a>
       </div>
       <div class="srv-card reveal d2">
-        <h3 class="srv-card-title">Predictive &amp; Prescriptive Analytics</h3>
+        <h3 class="srv-card-title" data-i18n="services.s4.title">Predictive &amp; Prescriptive Analytics</h3>
         <p class="srv-card-desc">Go beyond dashboards. We build probabilistic forecasting engines that not only predict what will happen, but recommend the optimal action to take — enabling proactive decision-making across finance, supply chain, and operations.</p>
-        <a href="contact.html" class="srv-card-link">
-          Inquire about this service
-</a>
+        <a href="contact.html" class="srv-card-link" data-i18n="services.card.link">Inquire about this service</a>
       </div>
       <div class="srv-card reveal d1">
-        <h3 class="srv-card-title">Intelligent Process Automation</h3>
+        <h3 class="srv-card-title" data-i18n="services.s5.title">Intelligent Process Automation</h3>
         <p class="srv-card-desc">Combine robotic process automation with AI reasoning to handle document ingestion, approval routing, exception handling, and multi-system orchestration — turning days-long workflows into seconds-long automated processes.</p>
-        <a href="contact.html" class="srv-card-link">
-          Inquire about this service
-</a>
+        <a href="contact.html" class="srv-card-link" data-i18n="services.card.link">Inquire about this service</a>
       </div>
       <div class="srv-card reveal d2">
-        <h3 class="srv-card-title">AI Strategy &amp; Governance</h3>
+        <h3 class="srv-card-title" data-i18n="services.s6.title">AI Strategy &amp; Governance</h3>
         <p class="srv-card-desc">For organisations at the beginning of their AI journey, we provide executive advisory, AI roadmap development, data strategy consulting, and responsible AI governance frameworks to ensure ethical, compliant deployment at every level.</p>
-        <a href="contact.html" class="srv-card-link">
-          Inquire about this service
-</a>
+        <a href="contact.html" class="srv-card-link" data-i18n="services.card.link">Inquire about this service</a>
       </div>
     </div>
   </section>
@@ -136,9 +129,9 @@
       </div>
     </div>
     <div class="alt-content reveal d2">
-      <div class="sec-label">Machine Learning</div>
-      <h2 class="sec-title">Models That <span>Improve Themselves</span></h2>
-      <p class="sec-desc">Our automated retraining pipelines monitor model performance in real time and trigger retraining when drift is detected — so your models stay sharp without manual intervention.</p>
+      <div class="sec-label" data-i18n="services.ml.label">Machine Learning</div>
+      <h2 class="sec-title" data-i18n="services.ml.title">Models That <span>Improve Themselves</span></h2>
+      <p class="sec-desc" data-i18n="services.ml.desc">Our automated retraining pipelines monitor model performance in real time and trigger retraining when drift is detected — so your models stay sharp without manual intervention.</p>
       <ul class="chk-list">
         <li>Automated feature engineering and hyperparameter optimisation</li>
         <li>A/B testing framework for safe model rollouts</li>
@@ -157,9 +150,9 @@
   <!-- ── ALT: NLP DEEP DIVE ── -->
   <div class="alt">
     <div class="alt-content reveal">
-      <div class="sec-label">Natural Language Processing</div>
-      <h2 class="sec-title">Language AI That <span>Understands Context</span></h2>
-      <p class="sec-desc">We fine-tune large language models on your domain-specific data, enabling them to understand your industry's terminology, tone, and compliance requirements out of the box.</p>
+      <div class="sec-label" data-i18n="services.nlp.label">Natural Language Processing</div>
+      <h2 class="sec-title" data-i18n="services.nlp.title">Language AI That <span>Understands Context</span></h2>
+      <p class="sec-desc" data-i18n="services.nlp.desc">We fine-tune large language models on your domain-specific data, enabling them to understand your industry's terminology, tone, and compliance requirements out of the box.</p>
       <ul class="chk-list">
         <li>Retrieval-Augmented Generation (RAG) for grounded, accurate outputs</li>
         <li>Custom entity extraction for legal, medical, and financial documents</li>
@@ -199,29 +192,29 @@
 
   <!-- ── PROCESS ── -->
   <section class="sec sec-alt">
-    <div class="sec-label">How We Work</div>
-    <h2 class="sec-title reveal">Delivery in <span>Four Phases</span></h2>
-    <p class="sec-desc reveal d1">A structured, low-risk delivery model that keeps stakeholders aligned and minimises surprises — from initial discovery to post-launch optimisation.</p>
+    <div class="sec-label" data-i18n="services.process.label">How We Work</div>
+    <h2 class="sec-title reveal" data-i18n="services.process.title">Delivery in <span>Four Phases</span></h2>
+    <p class="sec-desc reveal d1" data-i18n="services.process.desc">A structured, low-risk delivery model that keeps stakeholders aligned and minimises surprises — from initial discovery to post-launch optimisation.</p>
 
     <div class="process-row" style="margin-top:48px">
       <div class="proc-item reveal d1">
         <div class="proc-num">01</div>
-        <h3 class="proc-title">Discovery &amp; Audit</h3>
+        <h3 class="proc-title" data-i18n="services.p1.title">Discovery &amp; Audit</h3>
         <p class="proc-desc">We assess your data assets, business objectives, and technical infrastructure to define a clear AI roadmap with measurable milestones.</p>
       </div>
       <div class="proc-item reveal d2">
         <div class="proc-num">02</div>
-        <h3 class="proc-title">Design &amp; Prototype</h3>
+        <h3 class="proc-title" data-i18n="services.p2.title">Design &amp; Prototype</h3>
         <p class="proc-desc">Rapid prototyping in 2-week sprints with stakeholder demos. Architecture decisions are made collaboratively, not behind closed doors.</p>
       </div>
       <div class="proc-item reveal d3">
         <div class="proc-num">03</div>
-        <h3 class="proc-title">Build &amp; Deploy</h3>
+        <h3 class="proc-title" data-i18n="services.p3.title">Build &amp; Deploy</h3>
         <p class="proc-desc">Production-grade model development with automated testing, security hardening, and staged rollout to ensure zero-disruption deployment.</p>
       </div>
       <div class="proc-item reveal d4">
         <div class="proc-num">04</div>
-        <h3 class="proc-title">Monitor &amp; Optimise</h3>
+        <h3 class="proc-title" data-i18n="services.p4.title">Monitor &amp; Optimise</h3>
         <p class="proc-desc">Ongoing monitoring dashboards, quarterly performance reviews, and continuous model updates keep your AI ahead of the curve.</p>
       </div>
     </div>
@@ -251,13 +244,11 @@
 
   <!-- ── CTA ── -->
   <div class="cta-band reveal">
-    <h2>Have a Use Case in Mind?</h2>
-    <p>Share your challenge with our solution architects. We'll outline a tailored AI approach — completely free, with no obligation to proceed.</p>
+    <h2 data-i18n="services.cta.title">Have a Use Case in Mind?</h2>
+    <p data-i18n="services.cta.desc">Share your challenge with our solution architects. We'll outline a tailored AI approach — completely free, with no obligation to proceed.</p>
     <div class="cta-btns">
-      <a href="contact.html" class="btn btn-pri">
-        Talk to a Solution Architect
-      </a>
-      <a href="pricing.html" class="btn btn-sec">See Pricing</a>
+      <a href="contact.html" class="btn btn-pri" data-i18n="services.cta.btn1">Talk to a Solution Architect</a>
+      <a href="pricing.html" class="btn btn-sec" data-i18n="services.cta.btn2">See Pricing</a>
     </div>
   </div>
 
@@ -272,9 +263,8 @@
     <a href="contact.html">Contact</a>
   </div>
   <div class="bar-right">
-    <span>Ready to transform your business?</span>
-    <a href="contact.html" class="bar-cta">
-            Get Started Free
+    <span data-i18n="bar.tagline">Ready to transform your business?</span>
+    <a href="contact.html" class="bar-cta" data-i18n="bar.btn">Get Started Free
     </a>
   </div>
 </nav>
@@ -283,6 +273,7 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
