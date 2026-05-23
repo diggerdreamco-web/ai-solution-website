@@ -356,9 +356,7 @@ button { font-family: inherit; }
 .marquee {
   background: var(--text);
   color: var(--bg-primary);
-  border-top: 3px solid var(--text);
-  border-bottom: 3px solid var(--text);
-  padding: 22px 0;
+  padding: 12px 0;
   overflow: hidden;
   position: relative;
   margin: 0;
@@ -366,13 +364,13 @@ button { font-family: inherit; }
 .marquee-track {
   display: inline-flex;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
   white-space: nowrap;
   animation: marquee-scroll 45s linear infinite;
   font-family: 'Fraunces', Georgia, serif;
-  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
   font-weight: 500;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 .marquee-track span {
   display: inline-block;
