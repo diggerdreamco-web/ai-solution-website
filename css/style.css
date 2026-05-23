@@ -1,86 +1,116 @@
 /* ============================================================
-   AI SOLUTION — Editorial Boutique Redesign
-   Style: Warm minimal | Serif display | Asymmetric
+   AI SOLUTION — Industrial Utility / Workshop Manual
+   Reference: 1970s machinery manual, control panel signage
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Geist+Mono:wght@400;500;600&display=swap');
 
-/* ---- Custom Properties — Workshop Notes ---- */
 :root {
-  --bg-primary:    #f4ecd8;     /* aged paper */
-  --bg-secondary:  #ede2c6;     /* deeper paper */
-  --bg-card:       #fbf6e8;     /* lighter paper */
-  --bg-card-hover: #fff9eb;
-  --border:        rgba(40, 30, 20, 0.18);
-  --border-hover:  rgba(40, 30, 20, 0.45);
+  /* OKLCH palette — Committed (hi-vis orange carries the brand) */
+  --orange:        oklch(70% 0.19 45);
+  --orange-deep:   oklch(58% 0.18 40);
+  --orange-soft:   oklch(82% 0.10 55);
+  --yellow:        oklch(86% 0.16 95);
 
-  --primary:       #b8341c;     /* ink red */
-  --primary-dark:  #92281a;
-  --secondary:     #3d4a2a;     /* sage ink */
-  --accent:        #c2531f;
-  --accent-green:  #6b7a3a;
-  --danger:        #b8341c;
-  --warning:       #b8341c;
+  --surface:       oklch(96% 0.008 70);     /* warm off-white */
+  --surface-deep:  oklch(91% 0.014 70);     /* deeper panel */
+  --ink:           oklch(18% 0.015 50);     /* near-black, warm */
+  --ink-sub:       oklch(38% 0.012 50);
+  --ink-mute:      oklch(58% 0.010 50);
+  --line:          oklch(82% 0.014 60);
+  --line-strong:   oklch(28% 0.015 50);
 
-  --text:          #1c1812;     /* ink black */
-  --text-sub:      #4a4338;
-  --text-muted:    #8a7f6e;
+  --bg-primary:    var(--surface);
+  --bg-secondary:  var(--surface-deep);
+  --bg-card:       var(--surface);
+  --bg-card-hover: var(--surface-deep);
+  --border:        var(--line);
+  --border-hover:  var(--line-strong);
 
-  --mono: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+  --primary:       var(--orange);
+  --primary-dark:  var(--orange-deep);
+  --secondary:     var(--ink);
+  --accent:        var(--yellow);
+  --accent-green:  var(--orange-deep);
+  --danger:        var(--orange-deep);
+  --warning:       var(--yellow);
 
-  --sidebar-w:     270px;
-  --bar-h:         58px;
+  --text:          var(--ink);
+  --text-sub:      var(--ink-sub);
+  --text-muted:    var(--ink-mute);
 
-  --grad:          var(--primary);
-  --grad-accent:   var(--primary);
+  --display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --mono:    'Geist Mono', ui-monospace, monospace;
+
+  --grad:          var(--orange);
+  --grad-accent:   var(--orange-deep);
   --grad-glow:     none;
 
-  --shadow-card:   0 1px 2px rgba(26,22,20,0.04), 0 8px 24px rgba(26,22,20,0.04);
+  --shadow-card:   none;
   --glow:          none;
   --glow-sm:       none;
 
-  --ease:          cubic-bezier(0.4, 0, 0.2, 1);
-  --t:             all 0.28s var(--ease);
-  --t-slow:        all 0.6s var(--ease);
+  --ease:          cubic-bezier(0.16, 1, 0.3, 1);
+  --t:             all 0.24s var(--ease);
+  --t-slow:        all 0.5s var(--ease);
 
-  --r-sm:   8px;
-  --r-md:  14px;
-  --r-lg:  22px;
-  --r-xl:  36px;
+  --r-sm:   0;
+  --r-md:   0;
+  --r-lg:   0;
+  --r-xl:   0;
+
+  --bar-h:         58px;
 }
 
-/* ---- Reset ---- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: var(--bg-primary);
+  font-family: var(--display);
+  font-weight: 400;
+  font-variation-settings: "wdth" 100, "opsz" 14;
+  background: var(--surface);
   background-image:
-    radial-gradient(circle at 1px 1px, rgba(40,30,20,0.07) 1px, transparent 0);
-  background-size: 24px 24px;
+    linear-gradient(to right, oklch(82% 0.014 60 / 0.4) 1px, transparent 1px);
+  background-size: 48px 100%;
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.55;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
+
+/* Section labels — like machinery panel readouts */
 .eyebrow, .sec-label, .nav-group-label, .ph-label {
   font-family: var(--mono) !important;
   font-weight: 500 !important;
-  letter-spacing: 0.08em !important;
+  letter-spacing: 0.04em !important;
   text-transform: uppercase;
   font-size: 0.72rem !important;
-  color: var(--primary) !important;
+  color: var(--ink) !important;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 10px;
+  background: var(--orange);
+  border: none;
 }
 .eyebrow::before, .sec-label::before, .ph-label::before {
-  content: '§ ';
-  color: var(--primary);
-  font-weight: 600;
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--ink);
+  display: inline-block;
 }
+
+/* Display typography — heavy industrial sans */
 h1, h2, h3, .hero-title, .sec-title, .ph-title, .cta-band h2 {
-  font-family: 'Instrument Serif', 'Times New Roman', Georgia, serif;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
+  font-variation-settings: "wdth" 100, "opsz" 96;
+}
+h1 i, h2 i, h3 i, .hero-title i, .sec-title i {
+  font-style: italic;
+  font-weight: 600;
+  font-variation-settings: "wdth" 95, "opsz" 96;
+  color: var(--orange);
 }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
@@ -125,7 +155,7 @@ button { font-family: inherit; }
 }
 .logo { display: flex; align-items: center; }
 .logo-name {
-  font-family: 'Instrument Serif', 'Times New Roman', Georgia, serif;
+  font-family: var(--display);
   font-size: 1.25rem; font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1; color: var(--text);
@@ -289,30 +319,26 @@ button { font-family: inherit; }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.8)} }
 
 .hero-title {
-  font-family: 'Instrument Serif', 'Times New Roman', Georgia, serif;
-  font-size: clamp(4.5rem, 14vw, 12rem);
-  font-weight: 400; line-height: 0.88;
-  letter-spacing: -0.02em; margin-bottom: 32px;
-  color: var(--text);
-  text-transform: none;
+  font-family: var(--display);
+  font-size: clamp(3.5rem, 11vw, 10rem);
+  font-weight: 800;
+  line-height: 0.86;
+  letter-spacing: -0.045em;
+  margin-bottom: 32px;
+  color: var(--ink);
+  text-transform: uppercase;
+  font-variation-settings: "wdth" 88, "opsz" 96;
 }
 .hero-title > span { display: block; }
 .hero-title-grad {
-  color: var(--primary);
+  color: var(--ink);
+  background: var(--orange);
+  font-weight: 700;
   font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  position: relative;
+  font-variation-settings: "wdth" 80, "opsz" 96;
+  letter-spacing: -0.04em;
+  padding: 0 0.18em;
   display: inline-block;
-}
-.hero-title-grad::after {
-  content: '';
-  position: absolute;
-  left: -2%; right: -2%; bottom: -4px;
-  height: 14px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 14' preserveAspectRatio='none'><path d='M2 8 C 60 2, 120 12, 200 6 S 340 12, 398 4' stroke='%23b8341c' stroke-width='2.5' fill='none' stroke-linecap='round' opacity='0.85'/></svg>");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
 }
 
 .hero-mascot-wrap {
@@ -349,32 +375,34 @@ button { font-family: inherit; }
    MARQUEE BANNER
    ============================================================ */
 .marquee {
-  background: var(--text);
-  color: var(--bg-primary);
-  padding: 12px 0;
+  background: var(--orange);
+  color: var(--ink);
+  padding: 10px 0;
   overflow: hidden;
   position: relative;
   margin: 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
 }
 .marquee-track {
   display: inline-flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
   white-space: nowrap;
   animation: marquee-scroll 45s linear infinite;
-  font-family: 'Instrument Serif', 'Times New Roman', Georgia, serif;
-  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
-  font-weight: 500;
-  letter-spacing: 0;
+  font-family: var(--mono);
+  font-size: clamp(0.78rem, 1.2vw, 0.95rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
 }
 .marquee-track span {
   display: inline-block;
   text-transform: uppercase;
 }
 .marquee-track .marquee-dot {
-  color: var(--primary);
-  font-size: 0.85em;
-  text-transform: none;
+  color: var(--ink);
+  font-size: 0.8em;
+  font-weight: 700;
 }
 @keyframes marquee-scroll {
   from { transform: translateX(0); }
@@ -476,12 +504,13 @@ button { font-family: inherit; }
   content: attr(data-no);
   position: absolute;
   top: 32px; right: 64px;
-  font-family: 'Instrument Serif', serif;
-  font-style: italic;
+  font-family: var(--mono);
+  font-style: normal;
+  font-weight: 600;
   font-size: clamp(8rem, 18vw, 16rem);
   line-height: 0.85;
-  color: var(--text);
-  opacity: 0.05;
+  color: var(--ink);
+  opacity: 0.06;
   pointer-events: none;
   z-index: 0;
   letter-spacing: -0.04em;
@@ -499,7 +528,7 @@ button { font-family: inherit; }
   background: var(--grad); border-radius: 2px;
 }
 .sec-title {
-  font-family: 'Instrument Serif', 'Times New Roman', Georgia, serif;
+  font-family: var(--display);
   font-size: clamp(2.5rem, 5.5vw, 4.5rem);
   font-weight: 400;
   letter-spacing: -0.02em;
@@ -529,22 +558,27 @@ button { font-family: inherit; }
    BUTTONS
    ============================================================ */
 .btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 14px 24px; border-radius: 2px;
-  font-size: 0.875rem; font-weight: 500; letter-spacing: 0.01em;
-  cursor: pointer; transition: var(--t); border: none; outline: none;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 22px;
+  border-radius: 0;
+  font-family: var(--mono);
+  font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer; transition: var(--t);
+  border: 2px solid var(--ink);
+  outline: none;
   position: relative;
 }
-.btn svg { width: 16px; height: 16px; }
+.btn svg { width: 14px; height: 14px; }
 
-.btn-pri { background: var(--text); color: var(--bg-primary); }
-.btn-pri:hover { background: var(--primary); }
+.btn-pri { background: var(--orange); color: var(--ink); }
+.btn-pri:hover { background: var(--ink); color: var(--orange); }
 
 .btn-sec {
-  background: transparent; color: var(--text);
-  border: 1px solid var(--text);
+  background: var(--surface); color: var(--ink);
 }
-.btn-sec:hover { background: var(--text); color: var(--bg-primary); }
+.btn-sec:hover { background: var(--ink); color: var(--surface); }
 
 .btn-ghost {
   background: transparent;
@@ -563,47 +597,59 @@ button { font-family: inherit; }
 .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; }
 
 .card {
-  background: var(--bg-card);
-  border: 1px solid var(--text);
-  border-radius: 2px;
-  padding: 28px 26px;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  padding: 24px;
   position: relative;
-  box-shadow: 4px 4px 0 var(--text);
   transition: var(--t);
+  counter-increment: card-num;
 }
-.card::before { display: none; }
-.card:nth-child(3n+1) { transform: rotate(-0.4deg); }
-.card:nth-child(3n+2) { transform: rotate(0.3deg); }
-.card:nth-child(3n+3) { transform: rotate(-0.2deg); }
-.card:hover {
-  transform: translate(-2px, -2px) rotate(0);
-  box-shadow: 6px 6px 0 var(--primary);
-  border-color: var(--primary);
-}
-.card::after {
-  content: '';
+.card::before, .card::after { display: none; }
+.card::before {
+  display: block;
+  content: counter(card-num, decimal-leading-zero);
   position: absolute;
-  top: 8px; left: 8px; right: 8px; bottom: 8px;
-  pointer-events: none;
-  background-image:
-    linear-gradient(to right, var(--text) 0, var(--text) 12px, transparent 12px),
-    linear-gradient(to bottom, var(--text) 0, var(--text) 12px, transparent 12px),
-    linear-gradient(to left, var(--text) 0, var(--text) 12px, transparent 12px),
-    linear-gradient(to top, var(--text) 0, var(--text) 12px, transparent 12px);
-  background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
-  background-position: top left, top left, top right, bottom right;
-  background-repeat: no-repeat;
-  opacity: 0.7;
+  top: 16px; right: 18px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-mute);
+  background: none;
+  width: auto; height: auto;
 }
+.card:hover {
+  background: var(--orange);
+  border-color: var(--ink);
+  transform: none;
+  box-shadow: none;
+}
+.card:hover .card-title,
+.card:hover .card-desc,
+.card:hover::before { color: var(--ink); }
 
 .card-icon { display: none; }
 .card-title {
-  font-family: 'Instrument Serif', 'Times New Roman', Georgia, serif;
-  font-size: 1.4rem; font-weight: 500;
-  margin-bottom: 12px; line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-family: var(--display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-variation-settings: "wdth" 92, "opsz" 32;
+  margin-bottom: 10px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-transform: uppercase;
+  padding-right: 40px;
 }
-.card-desc { font-size: 0.9rem; color: var(--text-sub); line-height: 1.65; }
+.card-desc {
+  font-size: 0.92rem;
+  color: var(--ink-sub);
+  line-height: 1.55;
+  font-family: var(--display);
+}
+
+.grid-3 { counter-reset: card-num; }
+.grid-2 { counter-reset: card-num; }
 
 /* ============================================================
    STATS BAND
@@ -916,21 +962,36 @@ textarea.form-ctrl { resize: vertical; min-height: 118px; }
    VALUES
    ============================================================ */
 .val-item {
-  background: transparent;
-  border: none;
-  border-left: 2px solid var(--text);
-  border-radius: 0;
-  padding: 4px 0 4px 24px;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  padding: 22px 24px;
   transition: var(--t);
+  counter-increment: val-num;
+  position: relative;
 }
-.val-item:hover { border-left-color: var(--primary); transform: translateX(4px); }
+.val-item::before {
+  content: counter(val-num, decimal-leading-zero);
+  position: absolute;
+  top: 18px; right: 22px;
+  font-family: var(--mono);
+  font-size: 0.7rem; font-weight: 600;
+  color: var(--ink-mute);
+  letter-spacing: 0.04em;
+}
+.val-item:hover { background: var(--orange); border-color: var(--ink); }
+.grid-2 { counter-reset: val-num; }
 .val-icon { font-size: 1.6rem; margin-bottom: 12px; }
 .val-title {
-  font-family: 'Instrument Serif', 'Times New Roman', Georgia, serif;
-  font-size: 1.3rem; font-weight: 500;
-  margin-bottom: 8px; letter-spacing: -0.01em;
+  font-family: var(--display);
+  font-size: 1.15rem; font-weight: 700;
+  font-variation-settings: "wdth" 92, "opsz" 32;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  padding-right: 36px;
 }
-.val-desc { font-size: 0.9rem; color: var(--text-sub); line-height: 1.7; }
+.val-desc { font-size: 0.92rem; color: var(--ink-sub); line-height: 1.55; font-family: var(--display); }
 
 /* ============================================================
    CTA BAND
