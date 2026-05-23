@@ -13,25 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackTop();
   initChat();
   initI18n();
-  initSmoothScroll();
   initCursor();
   initHeroReveal();
 });
-
-/* ---- Smooth scroll (Lenis) ---- */
-function initSmoothScroll() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const s = document.createElement('script');
-  s.src = 'https://unpkg.com/lenis@1.1.13/dist/lenis.min.js';
-  s.onload = () => {
-    const lenis = new window.Lenis({
-      duration: 1.1,
-      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    });
-    (function raf(time) { lenis.raf(time); requestAnimationFrame(raf); })();
-  };
-  document.head.appendChild(s);
-}
 
 /* ---- Custom cursor ---- */
 function initCursor() {
