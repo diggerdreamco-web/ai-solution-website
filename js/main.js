@@ -215,8 +215,7 @@ function applyLang(lang) {
   });
 }
 
-/* Paste Cloudflare Worker URL di sini selepas deploy */
-const CHAT_GAS_URL = 'YOUR_CLOUDFLARE_WORKER_URL';
+const CHAT_GAS_URL = '/chat';
 
 function initChat() {
   /* inject HTML */
@@ -312,9 +311,15 @@ function initChat() {
 
     if (CHAT_GAS_URL && CHAT_GAS_URL !== 'YOUR_GAS_WEB_APP_URL') {
       try {
+        let session = localStorage.getItem('chat-session');
+        if (!session) {
+          session = (crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(36).slice(2));
+          localStorage.setItem('chat-session', session);
+        }
         const params = new URLSearchParams({
           message: txt,
-          page: location.pathname.split('/').pop() || 'index.html'
+          page: location.pathname.split('/').pop() || 'index.html',
+          session
         });
         const res  = await fetch(`${CHAT_GAS_URL}?${params}`);
         const data = await res.json();
