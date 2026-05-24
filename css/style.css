@@ -723,7 +723,8 @@ button { font-family: inherit; }
 }
 
 /* Inside split sections, grids should auto-fit */
-.sec-split .grid-3 {
+.sec-split .grid-3,
+.sec-split .srv-detail-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 12px;
@@ -733,6 +734,12 @@ button { font-family: inherit; }
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 12px;
 }
+.sec-split .process-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+.sec-split .faq-list { max-width: none; }
 
 @media (max-width: 900px) {
   .sec-split,
