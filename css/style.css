@@ -6,33 +6,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Geist+Mono:wght@400;500;600&display=swap');
 
 :root {
-  /* OKLCH palette — Committed (hi-vis orange carries the brand) */
-  --orange:        oklch(70% 0.19 45);
-  --orange-deep:   oklch(58% 0.18 40);
-  --orange-soft:   oklch(82% 0.10 55);
-  --yellow:        oklch(86% 0.16 95);
+  /* Anime cybertech palette — Drenched dark sunset */
+  --plum:          #46334F;       /* deep purple — primary surface */
+  --plum-deep:     #2e1f37;       /* deeper purple */
+  --plum-soft:     #5a4565;       /* raised surface */
+  --lavender:      #8082A6;       /* body text, secondary */
+  --lavender-pale: #b8b8d4;       /* high-contrast text */
+  --yellow:        #F2C230;       /* highlight, badges */
+  --orange:        #F2921D;       /* secondary CTA */
+  --red:           #F24F13;       /* primary accent — emphasis */
+  --red-deep:      #c43e0d;
 
-  --surface:       oklch(96% 0.008 70);     /* warm off-white */
-  --surface-deep:  oklch(91% 0.014 70);     /* deeper panel */
-  --ink:           oklch(18% 0.015 50);     /* near-black, warm */
-  --ink-sub:       oklch(38% 0.012 50);
-  --ink-mute:      oklch(58% 0.010 50);
-  --line:          oklch(82% 0.014 60);
-  --line-strong:   oklch(28% 0.015 50);
+  --surface:       var(--plum);
+  --surface-deep:  var(--plum-deep);
+  --surface-raised: var(--plum-soft);
+  --ink:           #f6f1ea;       /* warm cream for headlines */
+  --ink-sub:       var(--lavender-pale);
+  --ink-mute:      var(--lavender);
+  --line:          rgba(128, 130, 166, 0.20);
+  --line-strong:   rgba(128, 130, 166, 0.50);
 
   --bg-primary:    var(--surface);
   --bg-secondary:  var(--surface-deep);
-  --bg-card:       var(--surface);
-  --bg-card-hover: var(--surface-deep);
+  --bg-card:       var(--surface-raised);
+  --bg-card-hover: var(--surface-raised);
   --border:        var(--line);
   --border-hover:  var(--line-strong);
 
-  --primary:       var(--orange);
-  --primary-dark:  var(--orange-deep);
-  --secondary:     var(--ink);
+  --primary:       var(--red);
+  --primary-dark:  var(--red-deep);
+  --secondary:     var(--orange);
   --accent:        var(--yellow);
-  --accent-green:  var(--orange-deep);
-  --danger:        var(--orange-deep);
+  --accent-green:  var(--orange);
+  --danger:        var(--red);
   --warning:       var(--yellow);
 
   --text:          var(--ink);
@@ -68,10 +74,10 @@ body {
   font-family: var(--display);
   font-weight: 400;
   font-variation-settings: "wdth" 100, "opsz" 14;
-  background: var(--surface);
+  background: var(--plum);
   background-image:
-    linear-gradient(to right, oklch(82% 0.014 60 / 0.4) 1px, transparent 1px);
-  background-size: 48px 100%;
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(242, 79, 19, 0.18), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 90% 30%, rgba(242, 194, 48, 0.08), transparent 60%);
   color: var(--text);
   line-height: 1.55;
   overflow-x: hidden;
@@ -82,19 +88,19 @@ body {
 .eyebrow, .sec-label, .nav-group-label, .ph-label {
   font-family: var(--mono) !important;
   font-weight: 500 !important;
-  letter-spacing: 0.04em !important;
+  letter-spacing: 0.06em !important;
   text-transform: uppercase;
   font-size: 0.72rem !important;
-  color: var(--ink) !important;
+  color: var(--yellow) !important;
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 5px 10px;
-  background: var(--orange);
+  padding: 0;
+  background: transparent;
   border: none;
 }
 .eyebrow::before, .sec-label::before, .ph-label::before {
   content: '';
-  width: 6px; height: 6px;
-  background: var(--ink);
+  width: 24px; height: 1px;
+  background: var(--yellow);
   display: inline-block;
 }
 
@@ -129,8 +135,10 @@ button { font-family: inherit; }
 .sidebar {
   position: fixed; top: 0; left: 0; right: 0;
   height: 64px; width: 100%;
-  background: var(--bg-primary);
-  border-bottom: 1px solid var(--border);
+  background: rgba(70, 51, 79, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
   display: flex; flex-direction: row; align-items: center;
   z-index: 1000;
   transition: transform 0.3s var(--ease);
@@ -156,9 +164,12 @@ button { font-family: inherit; }
 .logo { display: flex; align-items: center; }
 .logo-name {
   font-family: var(--display);
-  font-size: 1.25rem; font-weight: 500;
-  letter-spacing: -0.01em;
-  line-height: 1; color: var(--text);
+  font-size: 1.05rem; font-weight: 700;
+  font-variation-settings: "wdth" 90;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--ink);
+  text-transform: uppercase;
 }
 
 /* Nav (center, horizontal) */
@@ -177,8 +188,9 @@ button { font-family: inherit; }
   border-radius: 2px;
   transition: var(--t);
 }
-.nav-link:hover { color: var(--text); background: rgba(26,22,20,0.06); }
-.nav-link.active { color: var(--primary); background: transparent; }
+.nav-link { color: var(--ink-sub); }
+.nav-link:hover { color: var(--yellow); background: transparent; }
+.nav-link.active { color: var(--yellow); background: transparent; }
 .nav-badge {
   margin-left: 4px; padding: 1px 6px;
   background: var(--primary); color: #fff;
@@ -195,14 +207,17 @@ button { font-family: inherit; }
 .social-row { display: none; }
 .sidebar-cta {
   display: inline-block; width: auto;
-  padding: 9px 16px;
-  background: var(--text); color: var(--bg-primary);
-  border-radius: 2px; font-size: 0.78rem;
-  font-weight: 500; letter-spacing: 0.02em;
+  padding: 8px 16px;
+  background: var(--red); color: var(--ink);
+  border-radius: 0;
+  font-family: var(--mono);
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   transition: var(--t);
   white-space: nowrap;
 }
-.sidebar-cta:hover { background: var(--primary); }
+.sidebar-cta:hover { background: var(--yellow); color: var(--plum-deep); }
 
 /* ---- Hamburger ---- */
 .hamburger {
@@ -331,13 +346,11 @@ button { font-family: inherit; }
 }
 .hero-title > span { display: block; }
 .hero-title-grad {
-  color: var(--ink);
-  background: var(--orange);
+  color: var(--red);
   font-weight: 700;
   font-style: italic;
   font-variation-settings: "wdth" 80, "opsz" 96;
   letter-spacing: -0.04em;
-  padding: 0 0.18em;
   display: inline-block;
 }
 
@@ -375,14 +388,14 @@ button { font-family: inherit; }
    MARQUEE BANNER
    ============================================================ */
 .marquee {
-  background: var(--orange);
-  color: var(--ink);
+  background: var(--red);
+  color: var(--plum-deep);
   padding: 10px 0;
   overflow: hidden;
   position: relative;
   margin: 0;
-  border-top: 2px solid var(--ink);
-  border-bottom: 2px solid var(--ink);
+  border-top: 1px solid var(--red-deep);
+  border-bottom: 1px solid var(--red-deep);
 }
 .marquee-track {
   display: inline-flex;
@@ -400,7 +413,7 @@ button { font-family: inherit; }
   text-transform: uppercase;
 }
 .marquee-track .marquee-dot {
-  color: var(--ink);
+  color: var(--yellow);
   font-size: 0.8em;
   font-weight: 700;
 }
@@ -572,13 +585,16 @@ button { font-family: inherit; }
 }
 .btn svg { width: 14px; height: 14px; }
 
-.btn-pri { background: var(--orange); color: var(--ink); }
-.btn-pri:hover { background: var(--ink); color: var(--orange); }
+.btn { border-color: var(--ink); }
+.btn-pri { background: var(--red); color: var(--ink); border-color: var(--red); }
+.btn-pri:hover { background: var(--yellow); color: var(--plum-deep); border-color: var(--yellow); }
 
 .btn-sec {
-  background: var(--surface); color: var(--ink);
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
 }
-.btn-sec:hover { background: var(--ink); color: var(--surface); }
+.btn-sec:hover { background: var(--ink); color: var(--plum); }
 
 .btn-ghost {
   background: transparent;
@@ -597,8 +613,8 @@ button { font-family: inherit; }
 .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; }
 
 .card {
-  background: var(--surface);
-  border: 1px solid var(--line-strong);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
   padding: 24px;
   position: relative;
   transition: var(--t);
@@ -619,14 +635,14 @@ button { font-family: inherit; }
   width: auto; height: auto;
 }
 .card:hover {
-  background: var(--orange);
-  border-color: var(--ink);
+  background: var(--red);
+  border-color: var(--red);
   transform: none;
   box-shadow: none;
 }
 .card:hover .card-title,
 .card:hover .card-desc,
-.card:hover::before { color: var(--ink); }
+.card:hover::before { color: var(--plum-deep); }
 
 .card-icon { display: none; }
 .card-title {
@@ -962,8 +978,8 @@ textarea.form-ctrl { resize: vertical; min-height: 118px; }
    VALUES
    ============================================================ */
 .val-item {
-  background: var(--surface);
-  border: 1px solid var(--line-strong);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
   padding: 22px 24px;
   transition: var(--t);
   counter-increment: val-num;
@@ -978,7 +994,8 @@ textarea.form-ctrl { resize: vertical; min-height: 118px; }
   color: var(--ink-mute);
   letter-spacing: 0.04em;
 }
-.val-item:hover { background: var(--orange); border-color: var(--ink); }
+.val-item:hover { background: var(--red); border-color: var(--red); color: var(--plum-deep); }
+.val-item:hover .val-title, .val-item:hover .val-desc, .val-item:hover::before { color: var(--plum-deep); }
 .grid-2 { counter-reset: val-num; }
 .val-icon { font-size: 1.6rem; margin-bottom: 12px; }
 .val-title {
