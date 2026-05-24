@@ -15,7 +15,7 @@ Mereka cari: bukti seseorang faham masalah mereka, bukan janji-janji enterprise.
 
 ## Brand & Tone
 
-**Voice**: Honest, casual Manglish/BM, anti-corporate. Pakai "ko" bukan "anda". Boleh sarcastic sikit pasal AI buzzwords. Tak overpromise.
+**Voice**: Honest, semi-formal BM (use "anda", "saya"). Boleh sarcastic sikit pasal AI buzzwords. Tak overpromise. Anti-corporate dari segi content, formal dari segi pronoun.
 
 **Personality keywords**: Workshop, mechanical, precise, witty, local (Kelantanese sensibility), self-deprecating but technically competent.
 
