@@ -508,6 +508,15 @@ button { font-family: inherit; }
   margin: 10px auto 18px;
 }
 .speech p { margin: 0; }
+.speech-attr {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  margin-top: 10px;
+  color: var(--lavender);
+  text-transform: uppercase;
+}
 .speech::before {
   content: '';
   position: absolute;
