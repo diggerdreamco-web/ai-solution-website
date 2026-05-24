@@ -513,14 +513,46 @@ button { font-family: inherit; }
   color: var(--ink);
 }
 
-/* Panel B — blob showcase, pressed surface */
+/* Panel B — hero photo, pressed surface frame */
 .panel-b {
   background: var(--surface);
   box-shadow: var(--neu-pressed);
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 18px;
+  overflow: hidden;
 }
 .panel-b .panel-tag { color: var(--ink-mute); }
+.panel-b-photo {
+  display: block;
+  position: relative;
+}
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+  border-radius: calc(var(--r-lg) - 6px);
+  box-shadow: var(--neu-raised-sm);
+  display: block;
+  filter: saturate(0.95);
+}
+.hero-photo-caption {
+  position: absolute;
+  bottom: 26px; left: 26px;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  background: rgba(74, 85, 104, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 50px;
+}
+
+/* Old blob mascot CSS still in stylesheet — keep for backward compat */
 .panel-b .hero-mascot-wrap {
   width: clamp(180px, 75%, 260px);
   margin: 0;
