@@ -78,12 +78,14 @@ function initSidebar() {
 
 /* ---- Active nav link ---- */
 function setActiveNav() {
-  const page = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(a => {
+  let page = location.pathname.split('/').pop() || 'index.html';
+  // Cloudflare Pages serves clean URLs (no .html) — normalize for matching
+  if (!page || page === '') page = 'index.html';
+  if (!page.includes('.')) page = page + '.html';
+
+  document.querySelectorAll('.nav-link, .bar-links a').forEach(a => {
     const href = a.getAttribute('href');
-    if (href === page || (!page && href === 'index.html') || (page === '/' && href === 'index.html')) {
-      a.classList.add('active');
-    }
+    if (href === page) a.classList.add('active');
   });
 }
 

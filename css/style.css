@@ -187,12 +187,18 @@ button { font-family: inherit; }
 }
 .nav-link {
   color: var(--ink-sub);
-  padding: 8px 16px;
+  padding: 9px 18px;
   border-radius: 50px;
+  font-weight: 500;
   transition: var(--t);
+  background: var(--surface);
 }
-.nav-link:hover { color: var(--accent); background: transparent; box-shadow: var(--neu-raised-sm); }
-.nav-link.active { color: var(--accent); box-shadow: var(--neu-pressed-sm); }
+.nav-link:hover { color: var(--accent); box-shadow: var(--neu-raised-sm); }
+.nav-link.active {
+  color: var(--accent);
+  font-weight: 600;
+  box-shadow: var(--neu-pressed-sm);
+}
 .nav-badge {
   margin-left: 4px; padding: 1px 6px;
   background: var(--primary); color: #fff;
