@@ -695,7 +695,59 @@ button { font-family: inherit; }
    SECTIONS
    ============================================================ */
 .sec { padding: 100px 64px 80px; position: relative; }
-.sec-alt { background: var(--bg-secondary); }
+.sec-alt { background: transparent; }
+
+/* Z-pattern split section */
+.sec-split {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) 1.6fr;
+  gap: 56px;
+  align-items: start;
+}
+.sec-split.flip { grid-template-columns: 1.6fr minmax(280px, 1fr); }
+.sec-split.flip .sec-head { order: 2; }
+.sec-split.flip .sec-body { order: 1; }
+
+.sec-head {
+  position: sticky;
+  top: 92px;
+  padding-top: 4px;
+}
+.sec-head .sec-label { margin-bottom: 22px; }
+.sec-head .sec-title { margin-bottom: 16px; }
+.sec-head .sec-desc {
+  font-size: 1rem;
+  color: var(--text-sub);
+  max-width: 38ch;
+  line-height: 1.5;
+}
+
+/* Inside split sections, grids should auto-fit */
+.sec-split .grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+.sec-split .grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .sec-split,
+  .sec-split.flip {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .sec-split .sec-head,
+  .sec-split.flip .sec-head {
+    position: static;
+    order: 1;
+  }
+  .sec-split .sec-body,
+  .sec-split.flip .sec-body { order: 2; }
+}
 
 /* Giant section index numbers (decorative, background) */
 .sec[data-no]::before {
