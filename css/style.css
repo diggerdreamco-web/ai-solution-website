@@ -385,6 +385,182 @@ button { font-family: inherit; }
 }
 
 /* ============================================================
+   COMIC PAGE LAYOUT
+   ============================================================ */
+.hero-comic {
+  padding: 100px 32px 32px;
+  background: transparent;
+}
+.comic-page {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "a b"
+    "c d";
+  position: relative;
+}
+@media (max-width: 720px) {
+  .comic-page {
+    grid-template-columns: 1fr;
+    grid-template-areas: "a" "b" "c" "d";
+  }
+}
+.panel-a { grid-area: a; }
+.panel-b { grid-area: b; }
+.panel-c { grid-area: c; }
+.panel-d { grid-area: d; }
+
+.panel {
+  border: 3px solid var(--ink);
+  background: var(--surface-raised);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.panel-tag {
+  position: absolute;
+  top: 10px; left: 12px;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--lavender);
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+/* Panel A — title splash, deeper plum bg */
+.panel-a {
+  background: var(--plum-deep);
+  min-height: 420px;
+  justify-content: center;
+}
+.panel-a .hero-title {
+  margin-bottom: 0;
+  font-size: clamp(2.8rem, 7.5vw, 6rem);
+  line-height: 0.9;
+  color: var(--ink);
+}
+
+/* Panel B — mascot panel, halftone red */
+.panel-b {
+  background: var(--red);
+  color: var(--plum-deep);
+  background-image:
+    radial-gradient(circle at center, var(--plum-deep) 1.2px, transparent 1.7px);
+  background-size: 14px 14px;
+  align-items: center;
+  justify-content: center;
+}
+.panel-b .panel-tag { color: var(--plum-deep); }
+.panel-b .hero-mascot-wrap {
+  width: clamp(140px, 60%, 220px);
+  margin: 0;
+  filter: drop-shadow(5px 5px 0 var(--plum-deep));
+}
+.panel-b .hero-mascot { color: var(--plum-deep); }
+
+/* Panel C — desc + CTA on yellow */
+.panel-c {
+  background: var(--yellow);
+  color: var(--plum-deep);
+  justify-content: flex-end;
+}
+.panel-c .panel-tag { color: var(--plum-deep); }
+.panel-c .hero-desc {
+  font-size: clamp(0.96rem, 1.4vw, 1.1rem);
+  line-height: 1.5;
+  color: var(--plum-deep);
+  margin-bottom: 22px;
+  max-width: 50ch;
+}
+.panel-c .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.panel-c .btn-pri { background: var(--plum-deep); color: var(--yellow); border-color: var(--plum-deep); }
+.panel-c .btn-pri:hover { background: var(--red); color: var(--ink); border-color: var(--red); }
+.panel-c .btn-sec { color: var(--plum-deep); border-color: var(--plum-deep); background: transparent; }
+.panel-c .btn-sec:hover { background: var(--plum-deep); color: var(--yellow); }
+
+/* Panel D — speech bubble */
+.panel-d {
+  background: var(--surface-raised);
+  background-image:
+    repeating-linear-gradient(45deg, transparent 0 7px, rgba(128,130,166,0.10) 7px 8px);
+  justify-content: center;
+  align-items: center;
+}
+.speech {
+  background: var(--ink);
+  color: var(--plum-deep);
+  border: 3px solid var(--ink);
+  padding: 20px 22px;
+  position: relative;
+  font-size: 0.94rem;
+  line-height: 1.45;
+  max-width: 92%;
+  margin: 10px auto 18px;
+}
+.speech p { margin: 0; }
+.speech::before {
+  content: '';
+  position: absolute;
+  bottom: -22px; left: 38px;
+  width: 0; height: 0;
+  border-left: 18px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 22px solid var(--ink);
+}
+
+/* Sound effects */
+.sfx {
+  position: absolute;
+  font-family: var(--display);
+  font-weight: 800;
+  font-style: italic;
+  font-size: clamp(1.4rem, 3.2vw, 2.4rem);
+  font-variation-settings: "wdth" 75, "opsz" 96;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 3;
+}
+.sfx-1 {
+  top: 36px; right: 28px;
+  color: var(--red);
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 4px 4px 0 var(--ink);
+  transform: rotate(-7deg);
+}
+.sfx-2 {
+  bottom: 18px; right: 16px;
+  color: var(--yellow);
+  -webkit-text-stroke: 2px var(--plum-deep);
+  text-shadow: 3px 3px 0 var(--plum-deep);
+  transform: rotate(8deg);
+}
+.sfx-3 {
+  top: 14px; right: 22px;
+  color: var(--orange);
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 3px 3px 0 var(--ink);
+  transform: rotate(-12deg);
+  font-size: 1.6rem;
+}
+
+/* Override .hero / .hero-inner default centered narrow stack */
+.hero-comic .hero-mascot-wrap {
+  transition: none;
+  animation: none;
+}
+
+/* ============================================================
    MARQUEE BANNER
    ============================================================ */
 .marquee {

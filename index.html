@@ -67,57 +67,70 @@
 ══════════════════════════════════════════════════ -->
 <main class="main">
 
-  <!-- ── HERO ── -->
-  <section class="hero">
-    <div class="hero-inner">
+  <!-- ── HERO COMIC PAGE ── -->
+  <section class="hero hero-comic">
+    <div class="comic-page">
 
-      <div class="hero-mascot-wrap">
-      <svg class="hero-mascot" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <!-- antenna -->
-        <line x1="100" y1="10" x2="100" y2="35" stroke="#1c1812" stroke-width="3" stroke-linecap="round"/>
-        <circle cx="100" cy="10" r="6" fill="#b8341c"/>
-        <!-- head -->
-        <rect x="45" y="35" width="110" height="90" rx="8" fill="#fbf6e8" stroke="#1c1812" stroke-width="3"/>
-        <!-- eyes -->
-        <g class="eye"><rect x="65" y="65" width="20" height="20" rx="3" fill="#1c1812"/><rect x="69" y="69" width="6" height="6" fill="#fbf6e8"/></g>
-        <g class="eye" style="animation-delay:0.15s"><rect x="115" y="65" width="20" height="20" rx="3" fill="#1c1812"/><rect x="119" y="69" width="6" height="6" fill="#fbf6e8"/></g>
-        <!-- mouth -->
-        <rect x="75" y="98" width="50" height="8" rx="2" fill="none" stroke="#1c1812" stroke-width="3"/>
-        <line x1="85" y1="98" x2="85" y2="106" stroke="#1c1812" stroke-width="2"/>
-        <line x1="100" y1="98" x2="100" y2="106" stroke="#1c1812" stroke-width="2"/>
-        <line x1="115" y1="98" x2="115" y2="106" stroke="#1c1812" stroke-width="2"/>
-        <!-- side bolts -->
-        <circle cx="45" cy="80" r="4" fill="#1c1812"/>
-        <circle cx="155" cy="80" r="4" fill="#1c1812"/>
-        <!-- neck -->
-        <rect x="88" y="125" width="24" height="14" fill="#1c1812"/>
-        <!-- body -->
-        <rect x="35" y="139" width="130" height="68" rx="6" fill="#b8341c" stroke="#1c1812" stroke-width="3"/>
-        <!-- chest panel -->
-        <rect x="60" y="155" width="80" height="36" rx="3" fill="#fbf6e8" stroke="#1c1812" stroke-width="2"/>
-        <circle cx="75"  cy="173" r="4" fill="#3d4a2a"/>
-        <circle cx="100" cy="173" r="4" fill="#b8341c"/>
-        <circle cx="125" cy="173" r="4" fill="#3d4a2a"/>
-        <!-- arms -->
-        <rect x="20" y="150" width="15" height="42" rx="3" fill="#1c1812"/>
-        <rect x="165" y="150" width="15" height="42" rx="3" fill="#1c1812"/>
-      </svg>
+      <!-- Panel A: Title splash -->
+      <div class="panel panel-a">
+        <div class="panel-tag">PANEL · 01</div>
+        <h1 class="hero-title">
+          <span data-i18n="index.hero.1">AI yang</span>
+          <span class="hero-title-grad" data-i18n="index.hero.2"><i>betul-betul</i></span>
+          <span data-i18n="index.hero.3">jalan.</span>
+        </h1>
+        <div class="sfx sfx-1">BZZZT!</div>
       </div>
 
-      <h1 class="hero-title">
-        <span data-i18n="index.hero.1">AI yang</span>
-        <span class="hero-title-grad" data-i18n="index.hero.2">betul-betul</span>
-        <span data-i18n="index.hero.3">jalan.</span>
-      </h1>
-
-      <p class="hero-desc" data-i18n="index.hero.desc">
-        Studio AI kecik dari Kota Bharu. Kami bina sistem yang selesaikan masalah sebenar perniagaan ko — bukan demo cantik, bukan slide deck, bukan janji-janji enterprise.
-      </p>
-
-      <div class="hero-btns">
-        <a href="contact.html" class="btn btn-pri" data-i18n="index.hero.btn1">Cerita masalah ko</a>
-        <a href="services.html" class="btn btn-sec" data-i18n="index.hero.btn2">Apa kami buat</a>
+      <!-- Panel B: Mascot -->
+      <div class="panel panel-b">
+        <div class="panel-tag">PANEL · 02</div>
+        <div class="hero-mascot-wrap">
+          <svg class="hero-mascot" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line x1="100" y1="10" x2="100" y2="35" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="100" cy="10" r="6" fill="var(--red)"/>
+            <rect x="45" y="35" width="110" height="90" rx="2" fill="var(--lavender-pale)" stroke="currentColor" stroke-width="3"/>
+            <g class="eye"><rect x="65" y="65" width="20" height="20" rx="2" fill="currentColor"/><rect x="69" y="69" width="6" height="6" fill="var(--yellow)"/></g>
+            <g class="eye" style="animation-delay:0.15s"><rect x="115" y="65" width="20" height="20" rx="2" fill="currentColor"/><rect x="119" y="69" width="6" height="6" fill="var(--yellow)"/></g>
+            <rect x="75" y="98" width="50" height="8" rx="0" fill="none" stroke="currentColor" stroke-width="3"/>
+            <line x1="85" y1="98" x2="85" y2="106" stroke="currentColor" stroke-width="2"/>
+            <line x1="100" y1="98" x2="100" y2="106" stroke="currentColor" stroke-width="2"/>
+            <line x1="115" y1="98" x2="115" y2="106" stroke="currentColor" stroke-width="2"/>
+            <circle cx="45" cy="80" r="4" fill="currentColor"/>
+            <circle cx="155" cy="80" r="4" fill="currentColor"/>
+            <rect x="88" y="125" width="24" height="14" fill="currentColor"/>
+            <rect x="35" y="139" width="130" height="68" rx="2" fill="var(--red)" stroke="currentColor" stroke-width="3"/>
+            <rect x="60" y="155" width="80" height="36" rx="0" fill="var(--lavender-pale)" stroke="currentColor" stroke-width="2"/>
+            <circle cx="75"  cy="173" r="4" fill="var(--yellow)"/>
+            <circle cx="100" cy="173" r="4" fill="currentColor"/>
+            <circle cx="125" cy="173" r="4" fill="var(--yellow)"/>
+            <rect x="20" y="150" width="15" height="42" rx="0" fill="currentColor"/>
+            <rect x="165" y="150" width="15" height="42" rx="0" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="sfx sfx-2">BING!</div>
       </div>
+
+      <!-- Panel C: Description + CTA -->
+      <div class="panel panel-c">
+        <div class="panel-tag">PANEL · 03</div>
+        <p class="hero-desc" data-i18n="index.hero.desc">
+          Studio AI kecik dari Kota Bharu. Kami bina sistem yang selesaikan masalah sebenar perniagaan ko — bukan demo cantik, bukan slide deck, bukan janji-janji enterprise.
+        </p>
+        <div class="hero-btns">
+          <a href="contact.html" class="btn btn-pri" data-i18n="index.hero.btn1">Cerita masalah ko →</a>
+          <a href="services.html" class="btn btn-sec" data-i18n="index.hero.btn2">Apa kami buat</a>
+        </div>
+      </div>
+
+      <!-- Panel D: Meta / dialog -->
+      <div class="panel panel-d">
+        <div class="speech">
+          <p>"Hi! Aku ROBO-01. Kalau ko ada masalah perniagaan yang AI patut selesaikan — cerita kat aku."</p>
+        </div>
+        <div class="sfx sfx-3">!?</div>
+      </div>
+
     </div>
   </section>
 

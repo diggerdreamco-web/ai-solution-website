@@ -20,23 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ---- Mascot scroll animation (roll + rotate) ---- */
 function initMascotScroll() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const wrap = document.querySelector('.hero-mascot-wrap');
-  if (!wrap) return;
-
-  let ticking = false;
-  function update() {
-    const y   = window.scrollY;
-    const max = window.innerHeight * 1.2;
-    const t   = Math.min(y / max, 1);
-    const tx  = t * 220;        // horizontal roll
-    const rot = t * 360;        // full rotation
-    wrap.style.transform = `translate3d(${tx}px, 0, 0) rotate(${rot}deg)`;
-    ticking = false;
-  }
-  window.addEventListener('scroll', () => {
-    if (!ticking) { requestAnimationFrame(update); ticking = true; }
-  }, { passive: true });
+  /* disabled when mascot lives in comic panel */
+  return;
 }
 
 /* ---- Custom cursor ---- */
