@@ -1200,12 +1200,13 @@ button { font-family: inherit; }
 }
 .faq-q:hover { color: var(--primary); }
 .faq-icon {
-  width: 27px; height: 27px; flex-shrink: 0;
-  border-radius: 7px;
-  background: var(--accent-soft);
-  border: 1px solid var(--accent-soft);
+  width: 32px; height: 32px; flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: var(--neu-raised-sm);
+  border: none;
   display: flex; align-items: center; justify-content: center;
-  color: var(--primary); font-size: 1.1rem; line-height: 1;
+  color: var(--accent); font-size: 1.15rem; line-height: 1; font-weight: 400;
   transition: var(--t); font-weight: 300;
 }
 .faq-item.open .faq-icon {
