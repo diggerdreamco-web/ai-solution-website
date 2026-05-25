@@ -263,7 +263,7 @@ button { font-family: inherit; }
 /* ============================================================
    LAYOUT
    ============================================================ */
-.main { margin-left: 0; padding-top: 64px; min-height: 100vh; padding-bottom: var(--bar-h); }
+.main { margin-left: 0; padding-top: 64px; min-height: 100vh; padding-bottom: calc(var(--bar-h) + 60px); }
 
 /* ============================================================
    STICKY BOTTOM BAR
@@ -1657,7 +1657,7 @@ textarea.form-ctrl { resize: vertical; min-height: 118px; }
   .page-hero { padding: 80px 32px 48px; }
   .alt { flex-direction: column !important; padding: 60px 32px; gap: 36px; }
   .stats-band { padding: 44px 32px; }
-  .cta-band { padding: 60px 32px; }
+  .cta-band { padding: 60px 32px; margin: 60px 20px; }
 
   .pricing-wrap { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
   .price-card.hot { transform: none; }
@@ -1683,10 +1683,13 @@ textarea.form-ctrl { resize: vertical; min-height: 118px; }
   .sec-alt { padding: 48px 18px; }
   .page-hero { padding: 70px 18px 40px; }
   .stats-band { padding: 36px 18px; }
-  .cta-band { padding: 48px 18px; }
+  .cta-band { padding: 44px 20px; margin: 48px 14px; }
+  .cta-btns { flex-direction: column; align-items: stretch; }
+  .cta-btns .btn { width: 100%; justify-content: center; }
   .contact-form-wrap { padding: 24px 18px; }
-  .bottom-bar { padding: 0 14px; }
+  .bottom-bar { padding: 0 14px; left: 8px; right: 8px; bottom: 10px; }
   .bar-links { display: none; }
+  .bar-right span { display: none; }
   .grid-3 { grid-template-columns: 1fr; }
   .hero-stats { flex-direction: column; gap: 16px; padding-top: 24px; }
   .hero-btns { flex-direction: column; align-items: flex-start; }
